@@ -1,15 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import { motion, useAnimation } from "framer-motion";
+import { Box, Typography, useTheme } from "@mui/material";
+import { motion, useAnimation } from "framer-motion";  
 
-// Import obrazków (możesz zamienić na własne)
+
 import serviceImage1 from "../../assets/o1.jpg";
 import serviceImage2 from "../../assets/o2.jpg";
 import serviceImage3 from "../../assets/o3.jpg";
 
 const ServiceSection = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const services = [
     {
@@ -60,13 +59,13 @@ const ServiceSection = () => {
 
       {/* Segmenty usług */}
       {services.map((service, index) => (
-        <ServiceItem key={index} service={service} index={index} isMobile={isMobile} />
+        <ServiceItem key={index} service={service} index={index} />
       ))}
     </Box>
   );
 };
 
-const ServiceItem = ({ service, index, isMobile }) => {
+const ServiceItem = ({ service, index }) => {
   const theme = useTheme();
   const controls = useAnimation();
   const ref = useRef(null);
@@ -107,37 +106,34 @@ const ServiceItem = ({ service, index, isMobile }) => {
       transition={{ duration: 1, ease: "easeOut" }}
       sx={{
         display: "flex",
-        flexDirection: isMobile ? "column" : index % 2 === 0 ? "row" : "row-reverse", // Naprzemienne ustawienie zdjęć
         justifyContent: "space-between",
         alignItems: "center",
         width: "80%",
         marginBottom: theme.spacing(6),
         position: "relative",
+        flexDirection: index % 2 === 0 ? "row" : "row-reverse", // Naprzemienne ustawienie zdjęć
       }}
     >
       {/* Niebieska tilda nad tekstem */}
-      {!isMobile && (
-        <Box
-          sx={{
-            position: "absolute",
-            top: "-30px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            fontSize: "4rem",
-            color: theme.palette.primary.main,
-          }}
-        >
-          ~
-        </Box>
-      )}
+      <Box
+        sx={{
+          position: "absolute",
+          top: "-30px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          fontSize: "4rem",
+          color: theme.palette.primary.main,
+        }}
+      >
+        ~
+      </Box>
 
       {/* Tekst (opis) */}
       <Box
         sx={{
-          width: isMobile ? "100%" : "50%",
-          paddingRight: isMobile ? 0 : theme.spacing(4),
-          textAlign: isMobile ? "center" : index % 2 === 0 ? "left" : "right", // Dopasowanie tekstu
-          marginBottom: isMobile ? theme.spacing(2) : 0,
+          width: "50%",
+          paddingRight: theme.spacing(4),
+          textAlign: index % 2 === 0 ? "left" : "right", // Dopasowanie tekstu
         }}
       >
         <Typography
@@ -170,7 +166,7 @@ const ServiceItem = ({ service, index, isMobile }) => {
           hidden: { opacity: 0, x: index % 2 === 0 ? 100 : -100 }
         }}
         transition={{ duration: 1, ease: "easeOut" }}
-        sx={{ width: isMobile ? "100%" : "50%" }}
+        sx={{ width: "50%" }}
       >
         <img
           src={service.image}

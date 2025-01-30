@@ -10,7 +10,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material";
-import logo from '../../assets/bitmapa.svg';
+import bitmapa from '../../assets/bitmapa.svg';
 
 const Navbar = () => {
   const theme = useTheme();
@@ -73,7 +73,7 @@ const Navbar = () => {
           >
             <Box
               component="img"
-              src={logo}
+              src={bitmapa}
               alt="Logo"
               sx={{
                 height: '80px',
@@ -136,6 +136,7 @@ const Navbar = () => {
                 </Button>
               ))}
               <Button
+                onClick={() => navigate('/contact')}
                 sx={{
                   marginLeft: "auto",
                   marginRight: theme.spacing(2),

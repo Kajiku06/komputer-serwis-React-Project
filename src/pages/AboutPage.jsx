@@ -6,9 +6,10 @@ import Baner from '../components/Baner/Baner';
 const AboutPage = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isLaptop = useMediaQuery(theme.breakpoints.up('md'));
 
     return (
-        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: theme.palette.background.default }}>
+        <div style={{ minHeight: isLaptop ? '60vh' : '100vh', display: 'flex', flexDirection: 'column', backgroundColor: theme.palette.background.default }}>
             <Baner pageName="O nas" />
             <Container maxWidth="md" style={{ padding: theme.spacing(4), backgroundColor: theme.palette.background.paper, flex: 1 }}>
                 <Typography variant="h4" align="center" style={{ marginBottom: theme.spacing(4), color: theme.palette.text.primary, fontWeight: 'bold' }}>

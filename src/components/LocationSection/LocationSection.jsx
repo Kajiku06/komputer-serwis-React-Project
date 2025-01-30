@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Box, Typography, useTheme } from "@mui/material";
 import { LocationOn } from "@mui/icons-material";
-import { motion, useAnimation } from "framer-motion";  // Importowanie motion z framer-motion
+import { motion, useAnimation } from "framer-motion";
 
 const LocationSection = () => {
   const theme = useTheme();
@@ -48,8 +48,8 @@ const LocationSection = () => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: theme.palette.background.default, // Użycie koloru tła z motywu
-        color: theme.palette.text.primary, // Użycie koloru tekstu z motywu
+        backgroundColor: theme.palette.background.default,
+        color: theme.palette.text.primary,
       }}
     >
       <motion.div
@@ -60,9 +60,9 @@ const LocationSection = () => {
           marginBottom: theme.spacing(2),
         }}
         animate={{ scale: [1, 1.5, 1] }}
-transition={{ duration: 2, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}
+        transition={{ duration: 2, repeat: Infinity, repeatType: "loop", ease: "easeInOut" }}
       >
-        <LocationOn sx={{ fontSize: "3rem", color: theme.palette.primary.main }} /> {/* Użycie koloru głównego z motywu */}
+        <LocationOn sx={{ fontSize: "3rem", color: theme.palette.primary.main }} />
       </motion.div>
       <Typography
         component={motion.div}
@@ -82,9 +82,8 @@ transition={{ duration: 2, repeat: Infinity, repeatType: "loop", ease: "easeInOu
         variant="body1"
         sx={{ textAlign: "center", maxWidth: "600px", marginBottom: theme.spacing(4) }}
       >
-        Znajdujemy się w centrum miasta, łatwo dostępni dla wszystkich naszych klientów. Zapraszamy do odwiedzenia nas w naszej siedzibie w Gdyni, Rumi i Redzie.
+        Działamy mobilnie i zdalnie, zapewniając bezproblemowy odbiór sprzętu. Dojeżdżamy do klientów w okolicy Rumi, Gdyni, Redy i innych pobliskich miejscowości.
       </Typography>
-      {/* Lokalizacja */}
       <Box
         component={motion.div}
         initial={{ opacity: 0, y: 20 }}
@@ -103,7 +102,7 @@ transition={{ duration: 2, repeat: Infinity, repeatType: "loop", ease: "easeInOu
             color: theme.palette.primary.main,
           }}
         >
-          Gdynia, Rumia, Reda
+          Rumia, Gdynia, Reda i okolice
         </Typography>
       </Box>
     </Box>
