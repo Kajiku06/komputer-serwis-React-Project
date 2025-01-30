@@ -1,0 +1,88 @@
+.footer {
+    position: relative;
+    overflow: hidden; /* Ensure circles do not extend beyond the footer */
+}
+
+.footer-content, .footer-bottom {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.footer.animate .footer-content, .footer.animate .footer-bottom {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.5;
+    width: 150px; /* Increased size */
+    height: 150px; /* Increased size */
+    animation: float 6s ease-in-out infinite;
+}
+
+.left-circle {
+    top: 50%;
+    left: -50px;
+    transform: translateY(-50%);
+}
+
+.right-circle {
+    top: 50%;
+    right: -50px;
+    transform: translateY(-50%);
+}
+
+.left-circle-1 {
+    top: 20%;
+    left: -75px; /* Adjusted for larger size */
+    transform: translateY(-50%);
+}
+
+.left-circle-2 {
+    top: 50%;
+    left: -100px; /* Adjusted for larger size */
+    transform: translateY(-50%);
+}
+
+.left-circle-3 {
+    top: 80%;
+    left: -125px; /* Adjusted for larger size */
+    transform: translateY(-50%);
+}
+
+.right-circle-1 {
+    width: 250px; /* Increased size */
+    height: 250px; /* Increased size */
+    bottom: -50px; /* Moved higher */
+    right: -75px; /* Adjusted to ensure it doesn't extend beyond the footer */
+}
+
+.right-circle-2 {
+    width: 200px; /* Increased size */
+    height: 200px; /* Increased size */
+    bottom: 50px; /* Moved higher */
+    right: 25px; /* Adjusted to ensure it doesn't extend beyond the footer */
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
